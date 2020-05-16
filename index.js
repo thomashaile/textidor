@@ -70,8 +70,8 @@ app.get('/files', (req, res, next) => {
 });
 
 // write a file
-app.post('/files:name', (req, res, next) => {
-    const fileName = req.body.name;
+app.post('/files/:name', (req, res, next) => {
+    const fileName = req.params.name;
     const fileText = req.body.text;
     fs.writeFile(`${FILES_DIR}/${fileName}`, fileText, err => {
         if (err) {
